@@ -1,7 +1,7 @@
 function Home() {
   return (
     <div>
-      <h1>Olá teste 2</h1>
+      <h1>Página Inicial: Tabnews</h1>
     </div>
   )
 }
