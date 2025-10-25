@@ -3,7 +3,7 @@ function Home() {
     <div>
       <h1>Página Inicial: Tabnews</h1>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
