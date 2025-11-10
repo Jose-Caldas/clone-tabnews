@@ -22,7 +22,6 @@ async function status(request, response) {
 
   const databaseopnedConnectionsValue =
     databaseOpnedConnetionsResult.rows[0].count;
-  console.log("resultado", databaseopnedConnectionsValue);
 
   const dependencies = {
     database: {
