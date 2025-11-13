@@ -1,7 +1,7 @@
 function Home() {
   return (
     <div>
-      <h1>Página Inicial: Tabnews</h1>
+      <h1>Curso.dev - Clone Tabnews</h1>
     </div>
   );
 }
