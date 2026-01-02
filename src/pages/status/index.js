@@ -14,7 +14,7 @@ export default function StatusPage() {
 
   const statusCheck = isLoading ? "🔴" : "🟢";
   const updatedAt = isLoading
-    ? "Carregando..."
+    ? ""
     : new Date(data.updated_at).toLocaleString("pt-BR");
   const version = data && data.dependencies.database.version;
   const connections = data && data.dependencies.database.max_connections;
@@ -25,13 +25,25 @@ export default function StatusPage() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>{statusCheck} Status / Database - PostgresSQL</h1>
-        <h2>Versão: {version}</h2>
+        {!isLoading && data ? (
+          <h2>Versão: {version}</h2>
+        ) : (
+          <h2>Versão: Carregando...</h2>
+        )}
       </div>
-      <div className={styles.content}>
-        <h2>Última atualização: {updatedAt}</h2>
-        <h2>Conexões máximas: {connections}</h2>
-        <h2>Conexões abertas: {openedConnections}</h2>
-      </div>
+      {!isLoading && data ? (
+        <div className={styles.content}>
+          <h2>Última atualização: {updatedAt}</h2>
+          <h2>Conexões máximas: {connections}</h2>
+          <h2>Conexões abertas: {openedConnections}</h2>
+        </div>
+      ) : (
+        <div className={styles.content}>
+          <h2>Última atualização: Carregando...</h2>
+          <h2>Conexões máximas: Carregando...</h2>
+          <h2>Conexões abertas: Carregando...</h2>
+        </div>
+      )}
     </div>
   );
 }
