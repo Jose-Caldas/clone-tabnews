@@ -13,7 +13,9 @@ export default function StatusPage() {
   });
 
   const statusCheck = isLoading ? "🔴" : "🟢";
-  const updatedAt = isLoading ? "Carregando..." : data.updated_at;
+  const updatedAt = isLoading
+    ? "Carregando..."
+    : new Date(data.updated_at).toLocaleString("pt-BR");
   const version = data && data.dependencies.database.version;
   const connections = data && data.dependencies.database.max_connections;
   const openedConnections =
